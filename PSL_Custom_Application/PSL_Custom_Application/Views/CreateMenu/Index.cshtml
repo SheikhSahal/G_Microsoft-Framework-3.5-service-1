@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@using (Html.BeginForm())
+{
+    <input type="text" name="Menu_name" id="Menu_name" class="Menu_name" />
+    <input type="text" name="Menu_parent_id" id="Menu_parent_id" class="Menu_parent_id" />
+    <a id="add" class="add btn btn-default">add</a>
+    <a id="right" class="right btn btn-default">right</a>
+
+    <input type="submit" />
+}
+<table>
+    <tbody id="details">
+
+    </tbody>
+</table>
+
+
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        $("#add").click(function () {
+            var AllValid = true;
+
+            if (AllValid) {
+                var menu_name = $('#Menu_name').val().trim();
+                var menu_parent_id = $('#Menu_parent_id').val().trim();
+
+                var name_ip = '<input type="text" id="np" class="np" value=' + menu_name + '>';
+                var menuid_ip = '<input type="text" id="mp" class="mp" value=' + menu_parent_id + '>';
+
+
+                var detail_values = '<tr> <td>' + name_ip + '</td> <td>' + menuid_ip + '</td> </tr>';
+
+                $('#details').append(detail_values);
+            }
+
+
+        });
+
+
+    });
+</script>       
